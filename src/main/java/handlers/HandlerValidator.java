@@ -21,12 +21,9 @@ public class HandlerValidator implements SOAPHandler<SOAPMessageContext> {
 
     @Override
     public boolean handleMessage(SOAPMessageContext context) {
-
             Boolean isResponce = (Boolean) context.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
-
             if (isResponce) {  // добавляем в ответ поле UUID в заголовок
                 try {
-
                     SOAPFactory soapFactory = SOAPFactory.newInstance();
                     SOAPElement soapElement = soapFactory.createElement("UUID");
                     soapElement.addTextNode(UUID.randomUUID().toString());
@@ -35,7 +32,6 @@ public class HandlerValidator implements SOAPHandler<SOAPMessageContext> {
                     SOAPHeader soapHeader = soapEnv.getHeader();
 
                     soapHeader.addChildElement(soapElement);
-
                 } catch (SOAPException e) {
                     System.err.println(e);
                 }

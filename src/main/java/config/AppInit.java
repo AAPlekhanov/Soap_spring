@@ -1,21 +1,10 @@
 package config;
 
-
-
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.MultipartConfigElement;
-
-import javax.servlet.ServletRegistration;
-
 /**
- * инициализация Spring MVC через аннотации ( Файлов dispatcher-servlet.xml и web.xml не должно быть чтобы не было конфликтов)
- * аналог web.xml
+ * инициализация Spring MVC через аннотации
  */
-
-
-
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
