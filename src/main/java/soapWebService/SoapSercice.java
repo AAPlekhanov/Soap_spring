@@ -2,6 +2,7 @@ package soapWebService;
 
 import model.Document;
 import model.Goods;
+import soapWebService.exceptions.MyWebServiseException;
 
 import javax.jws.WebService;
 
@@ -15,9 +16,11 @@ public interface SoapSercice {
 
     Document getDocument();
 
-    void sendGoods(Goods goods);
+    void sendGoods(Goods goods) throws MyWebServiseException;
 
-    void sendDocument(Document document);
+    void sendDocument(Document document) throws MyWebServiseException;
+
+    void getException(String text) throws MyWebServiseException;
 
 
 

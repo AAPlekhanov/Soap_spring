@@ -1,17 +1,29 @@
 package model;
 
+import soapWebService.annotations.ExceptionMessage;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created for JavaStudy.ru on 12.06.2016.
- */
+
 @XmlRootElement(name = "document")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Document implements Serializable{
 
+    @XmlElement(required = true)
+    @ExceptionMessage(message = "id документа не задан")
     private int id;
+
+    @XmlElement(required = true)
+    @ExceptionMessage(message = "name незадано")
     private String name;
+
+    @XmlElement(required = true)
+    @ExceptionMessage(message = "List<Goods> не задан")
     private List<Goods> goodsList;
 
     public Document() {

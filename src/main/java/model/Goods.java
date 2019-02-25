@@ -1,15 +1,24 @@
 package model;
 
+import soapWebService.annotations.ExceptionMessage;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
-/**
- * Created for JavaStudy.ru on 11.06.2016.
- */
+
 @XmlRootElement(name = "goods")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Goods implements Serializable {
 
+    @XmlElement(required = true)
+    @ExceptionMessage(message = "id товара не задан")
     private int id;
+
+    @XmlElement(required = true)
+    @ExceptionMessage(message = "name не задан")
     private String name;
 
     public Goods() {
